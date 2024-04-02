@@ -1,0 +1,72 @@
+
+
+<section id="post-cv">
+    <div class="container">
+        <div id="article">
+
+            {{ content }}
+
+            {% for cvitem in page.cv %}
+                <h1>{{ cvitem.name }}</h1>
+
+                {% if cvitem.name == "publications" %}
+                    {% include pubs-subteam.html subteam=page.subtype publications=site.data.publications %}
+                    {% for y in page.pubyears %}
+                        {% if y != "all" %}<h2>{{ y }}</h2>{% endif %}
+                        {% include pubs.html year=y publications=cvitem.elems %}
+                    {% endfor %}
+                {% elsif cvitem.name == "service" %}
+                    {% for item in cvitem.elems %}
+                        <div class="row cv-item">
+                            {% if item.year or item.venue or item.where %}
+                            <div class="col-md-4">
+                                <h3 class="inlineifprinted">{{item.year}}</h3>
+                                <h4 class="inlineifprinted">{{item.venue}}</h4>
+                                <p  class="no-print d-none d-md-block">{{item.where}}</p>
+                            </div>
+                            <div class="col-md-8">
+                            {% else %}
+                            <div class="col-md-12">
+                            {% endif %}
+                                <h2 {% if item.inline %}style="display:inline-block;"{% endif %}>{{item.title}}</h2>
+                                {% if item.elems %}
+                                    <ul>
+                                    {% for elem in item.elems %}
+                                        {% if elem.year %}
+                                        <li><b>{{ elem.year }}</b> - {{ elem.where }} - {{ elem.description }}</li>
+                                        {% else %}<li>{{ elem }}</li>{% endif %}
+                                    {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <p {% if item.inline %}style="display:inline-block;"{% endif %}>{% if item.authors %}<i class="no-print">{{item.authors}}</i><br class="no-print">{% endif %}
+                                    {{ item.description }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for elem in cvitem.elems %}
+                        <div class="row cv-item">
+                            <div class="col-md-3">
+                                {% if elem.start %}
+                                <h3 class="inlineifprinted">{{elem.start}} - {{elem.end}}</h3>
+                                {% endif %}
+                                {% if elem.when %}
+                                <h3 class="inlineifprinted">{{elem.when}}</h3>
+                                {% endif %}
+                                {% if elem.location-link %}<h4 class="inlineifprinted"><a href="{{elem.location-link}}" target="_blank">{{elem.location}}</a></h4>
+                                {% else %}<h4 class="inlineifprinted">{{elem.location}}</h4>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-9">
+                                <h2>{{elem.name}}</h2>
+                                <p>{% if elem.title %}<i>{{elem.title}}</i><br>{% endif %}
+                                {{elem.description}}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+</section>
+

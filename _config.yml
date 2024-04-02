@@ -1,0 +1,92 @@
+# Site settings
+title: Industrial Data Analytiesand Digital Manufacturing (IDADM) Laboratory
+email: alessandro.roncone@colorado.edu
+url: http://idadm-lab.cn
+phone: +86 (020) 8833-5989
+google-analytics-id:  G-76827T07Y0
+description: "The IDADM-Lab, led by Dr.Du at HKUST(GZ)"
+owner: INDUSTRIAL DATA ANALYTIES AND DIGITAL MANUFACTURING (IDADM) LABORATORY
+owner-short: IDADM-Lab
+owner-url: https://sites.google.com/view/juandu/home
+
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  - title: github-alt
+    url: https://github.com/HIRO-group
+  - title: slack
+    url: https://cu-hiro.slack.com
+
+meetings:
+  semester: Spring 2021
+  location: via Zoom
+  note: "---please contact us for the meeting details"
+
+logo: /img/logo-square.svg
+logopng: /img/logo-square.png
+logo2: /img/logo-rect.svg
+logo3: /img/logo-long-white-text.svg
+
+# Postal address (add as many lines as necessary)
+address:
+  - line: Smart Manufacturing Thrust,
+  - line: Systems Hub,
+  - line: The Hong Kong University of Science and Technology (Guangzhou),
+  - line: No.1 Du Xue Rd, Nansha District, Guangzhou
+
+# Build settings
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  highlighter: rouge
+  toc_levels: "1,2,3"
+permalink: pretty
+plugins:
+  - jekyll-sitemap
+  - rouge
+  - jekyll-seo-tag
+  - jemoji
+  #- jekyll-mentions
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
+  -
+    scope:
+      path: "_posts"
+    values:
+      type: "article"
+  -
+  #   scope:
+  #     path: "_posts/wiki"
+  #   values:
+  #     category: "wiki"
+  # -
+    scope:
+      path: "_posts/news"
+    values:
+      category: "news"
+  -
+    scope:
+      path: "_posts/research"
+    values:
+      category: "research"
+
+  -
+    scope:
+      path: "_posts/research/subteams"
+    values:
+      type: "subteams"
+      category: [research, subteams]
+
+# Default colors (hex-codes without the leading hash-tag):
+color:
+  banner: 66a329                            # This is a green banner color (for red, use bf4040)
+  articletext: 3c3c3c                       # This is the text color
+  primary:  ffffff                          # This is the background of the logo, light gray
+  secondary: 282828                         # This is dark gray
+  secondary-alpha: rgba(40,40,40,.7)        # This is the same as the secondary color but with an alpha value
+  # accent: 4982a7
+  accent: 00a0a0                            # This is an electric blue accent

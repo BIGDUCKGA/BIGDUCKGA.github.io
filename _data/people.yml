@@ -1,0 +1,78 @@
+ - name: Prof. Juan Du
+   role: faculty
+   url: https://sites.google.com/view/juandu/home
+   office: W1 506
+   phone: (86) 020-88335989 
+   email: juandu@ust.hk
+   pic: dujuan.jpg
+
+#lab Manager
+#  - name: Dusty Woods
+#    role: labmanager
+#    office: ECES 111
+#    phone: +1 (303) 735-5953
+#    email: dewo3276@colorado.edu
+#    pic: dusty.jpg
+
+# Postdocs
+
+ # - name: Shiran Dudy
+ #   role: postdoc
+ #   url: http://www.shirandudy.com
+ #   email: shiran.dudy@colorado.edu
+ #   pic: shiran.jpg
+
+
+#  - name: Jake Brawer
+#    role: postdoc
+#    url: https://jakebrawer.com
+#    email: jake.brawer@colorado.edu
+#    pic: jake.jpg
+
+
+# PhD Students
+# [in order of first appearance in the lab]
+
+ - name: Chengyu Tao
+   role: phd
+  #  url: https://joewiekoh.com
+   email: ctaoaa@connect.ust.hk
+   pic: taocy.jpg
+
+ - name: Yukun Xie
+   role: phd
+  #  page: anuj
+  #  url: https://anuj.carrd.co
+   email: yxiebg@connect.ust.hk
+   pic: xieyk.jpg
+
+ - name: Peng Ye
+   role: phd
+   email: pye709@connect.hkust-gz.edu.cn
+   pic: yep.jpg
+
+ - name: Yuanming Cao
+   role: phd
+   email: xcao743@connect.hkust-gz.edu.cn
+   pic: caoxm.jpg
+
+# Graduate Students
+# [in order of first appearance in the lab]
+ - name: Hao Xu
+   role: grad
+  #  linkedin: joseph-miceli
+   email: hxu726@connect.hkust-gz.edu.cn
+   pic: xuhao.jpg
+
+
+
+# Undergraduate Students
+# [in order of first appearance in the lab]
+
+    
+# Collaborators
+# [in order of first appearance in the lab]
+
+
+# Alumni
+# [in inverse order of when they left the lab]

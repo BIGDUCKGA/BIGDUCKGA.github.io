@@ -1,0 +1,52 @@
+
+                   {% if include.subtype  %}{% assign subtypes = include.subtype  %}
+                {% elsif include.subtypes %}{% assign subtypes = include.subtypes %}
+                {% else  %}                 {% assign subtypes =    page.type     %}
+                {% endif %}
+
+                {% for subtype in subtypes %}
+                    <!-- If there is a page with multiple subtypes to display,
+                    defined in its front matter, we will have unique sections
+                    for each subtype -->
+
+                    {% for category in site.categories %}
+                        {% if subtype == category[0] %}
+
+                            {% if page.pagelimit %}{% assign pagelimit = page.pagelimit %}
+                            {% else %}             {% assign pagelimit = 100 %}
+                            {% endif %}
+
+                            {% for post in category[1] limit: pagelimit %}
+                                <div class="col-md-11 mx-auto portfolio-item" {% if subtype == "news" %}id="news"{% elsif subtype == "research" or subtype == "subteams" or page.type == "subteams" %}id="research"{% endif %}>
+                                    <a href="{{ post.url }}" class="no-border portfolio-link" style="max-width:100%">
+                                        <div class="row">
+                                        <div {% if subtype == "subteams" %}class="col-12"{% else %}class="col-xl-10"{% endif %}>
+                                        <h3 class="post-title">{{ post.title }}</h3>
+                                        {% if page.type == "research" or subtype == "subteams" or page.type == "subteams" %}
+                                            {% if post.description %}
+                                                <p class="post-description">{{ post.description }}</p>
+                                            {% endif %}
+                                            {% if post.image.feature %}
+                                                <div class="img-container" style="margin-bottom: 12px; max-width:{% if post.image.size %} {{ post.image.size }}{% else %} 100%{% endif %};">
+                                                    <img classs="img-fluid img-centered" src="/img/{{ post.image.feature }}" alt="{{ post.title }}">
+                                                </div>
+                                            {% endif %}
+                                            {% if subtype != "subteams" %}
+                                                <p>{{ post.excerpt }}</p>
+                                                <strong>[Read More]</strong>
+                                            {% endif %}
+                                        {% else %}
+                                            {% if post.description %}
+                                                <p class="post-description">{{ post.description }}</p>
+                                            {% endif %}
+                                        {% endif %}
+                                        </div>
+                                        {% if subtype != "subteams" %}<div class="col-2"><p class="post-date">{{ post.date | date: '%B %d, %Y' }}</p></div>{% endif %}
+                                        </div>
+                                        <!-- <strong>[Read More]</strong> -->
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
